@@ -2,20 +2,24 @@
 
 namespace IntroToDotnet
 {
-
-  class Logic
+  class Program
   {
-    public void accept()
+    static void Main(string[] args)
     {
+      Console.WriteLine("I can guess your number between 1 and 100.");
+      System.Threading.Thread.Sleep(1500);
+      Console.WriteLine("Think of your number and press 'enter' to begin");
+      // user input
+      while (Console.ReadKey().Key != ConsoleKey.Enter) { }
       var min = 1m;
       var max = 100m;
       var lower = min;
       var upper = max;
       var guess = Math.Floor((lower + upper) / 2);
       var success = false;
-      var input = Console.ReadLine();
-
+      Console.WriteLine($"Is your number {guess}?");
       // while loop
+      var input = Console.ReadLine();
       while (!success)
       {
         if (input == "higher")
@@ -53,22 +57,6 @@ namespace IntroToDotnet
             success = true;
           }
         }
-      }
-    }
-    class Program
-    {
-      static void Main(string[] args)
-      {
-        // user input
-        Console.WriteLine("I can guess your number between 1 and 100.");
-        System.Threading.Thread.Sleep(1500);
-        Console.WriteLine("Think of your number and press 'enter' to begin");
-        while (Console.ReadKey().Key != ConsoleKey.Enter) { }
-        Console.WriteLine($"Is your number {guess}?");
-        // creating object of class logic
-        Logic logic = new Logic();
-        Logic.Accept();
-
       }
     }
   }
